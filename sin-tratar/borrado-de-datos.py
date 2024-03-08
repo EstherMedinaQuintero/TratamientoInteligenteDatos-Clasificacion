@@ -21,5 +21,14 @@ df = df[~df['ApplicantIncome'].str.contains('\.')]
 # Pasamos la columna a números 
 df['ApplicantIncome'] = df['ApplicantIncome'].astype(int)
 
+# Pasamos a string la columna de números
+df['CoapplicantIncome'] = df['CoapplicantIncome'].astype(str)
+
+# Quitamos los números mal escritos
+df = df[~df['CoapplicantIncome'].str.contains('\.')]
+
+# Pasamos la columna a números 
+df['CoapplicantIncome'] = df['CoapplicantIncome'].astype(int)
+
 # Guardar el DataFrame actualizado en un nuevo archivo CSV
 df.to_csv("homeLoanAproval_modificado.csv", index=False)

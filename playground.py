@@ -1,3 +1,48 @@
+"""
+Código para análisis y clasificación de datos de préstamos hipotecarios
+
+Este script carga y procesa un conjunto de datos de aprobación de préstamos hipotecarios,
+realizando diversas transformaciones y análisis de datos, seguido de la implementación
+y evaluación de varios algoritmos de clasificación. Se emplean técnicas de tratamiento
+de datos para manejar valores faltantes, desequilibrios en las clases y valores atípicos.
+Las siguientes etapas principales se llevan a cabo en el script:
+
+1. **Carga y exploración de datos**:
+   - Carga de datos desde un archivo CSV y visualización de la estructura básica del conjunto de datos.
+   - Conversión de variables a tipos numéricos, reemplazo de valores faltantes, y verificación
+     de valores perdidos.
+
+2. **Transformación de datos**:
+   - Relleno de valores faltantes en columnas específicas y tratamiento de valores atípicos.
+   - Conversión de ciertas columnas a valores numéricos para facilitar el análisis.
+
+3. **Creación de conjuntos de entrenamiento y prueba**:
+   - División del conjunto de datos en conjuntos de entrenamiento y prueba, tanto para el conjunto
+     original como para el conjunto con sobremuestreo para balancear las clases.
+
+4. **Entrenamiento y evaluación de modelos**:
+   - Entrenamiento de modelos de clasificación usando k-Nearest Neighbors (k-NN), Árbol de Decisión,
+     y Naive Bayes, tanto en el conjunto de datos sin balancear como en el balanceado.
+   - Evaluación de cada modelo en términos de precisión y matriz de confusión.
+
+5. **Visualización de resultados**:
+   - Generación de gráficos de dispersión y boxplots para evaluar la distribución de los datos
+     y visualizar los valores atípicos.
+   - Visualización de los resultados de los modelos de k-NN en términos de precisión y matriz de confusión.
+
+**Librerías utilizadas**:
+- `pandas`, `numpy`: Para manipulación y análisis de datos.
+- `scikit-learn`: Para modelos de clasificación y métricas de evaluación.
+- `imblearn`: Para técnicas de sobremuestreo (RandomOverSampler).
+- `matplotlib`: Para visualización de datos.
+
+**Instrucciones de uso**:
+- Asegúrese de que todas las librerías requeridas estén instaladas.
+- Los datos deben estar en la ruta especificada como `./SinTratamiento/homeLoanAproval.csv`.
+
+"""
+
+
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
@@ -16,7 +61,7 @@ import matplotlib.pyplot as plt
 # !pip install scikit-learn
 
 # Load the dataset
-datos = pd.read_csv("./sin-tratar/homeLoanAproval.csv")
+datos = pd.read_csv("./SinTratamiento/homeLoanAproval.csv")
 
 # Verify the structure of the data
 print(datos.info())
